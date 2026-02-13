@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8">
+  <title>Заказ готов к выдаче</title>
+  <script src="https://cdn.jsdelivr.net/npm/qrcode/build/qrcode.min.js"></script>
+</head>
+<body>
+  <h2>📦 Ваш заказ готов к выдаче</h2>
+
+  <p>Покажите QR оператору ПВЗ:</p>
+  <div id="qrcode"></div>
+
+  <script>
+    // тестовый токен, позже будем получать с backend
+    const token = "F9aD2kLm91Q";
+
+    QRCode.toCanvas(document.getElementById('qrcode'), token, { width: 200 }, function (error) {
+      if (error) console.error(error);
+      else console.log('QR сгенерирован');
+    });
+  </script>
+</body>
+</html>
